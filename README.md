@@ -10,5 +10,5 @@ This repository is where I experiment, learn, and build interesting projects. I'
 
 * GrowtopiaAutoFarmer(Python): * A application that uses image recognition to identify all targets on the screen and break them. Auto moves when no target is found.
 
-* NikeAutoCheckout(Python): *  A application that uses image recognition to identify if a shoe is in stock and automatically checkout if it is. Used to monitor drops.
+* NikeAutoCheckout(Python): *  A application that uses image recognition to identify if a specified product is in stock and automatically checkout if it is. Used to monitor drops.
   
