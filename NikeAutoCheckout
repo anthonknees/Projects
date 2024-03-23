@@ -1,0 +1,49 @@
+import pyautogui as pag
+import time
+import random
+
+pag.FAILSAFE = True
+
+def get_position(file : str):
+    try:
+        position = pag.locateCenterOnScreen(file, confidence=.7, grayscale=True)
+        if position is None:
+            print(f"{file} not found on screen...")
+            return None
+        else:
+            x = (position[0]) + random.uniform(-20, 20)
+            y = (position[1]) + random.uniform(-20, 25)
+            return x,y
+    except Exception as e:
+        print(f"Exception: {e}")
+        return None
+
+def add_to_cart():
+    time.sleep(1)
+    try:
+        pos = get_position("next.png")
+        if pos is not None:
+            pag.click(pos[0], pos[1])
+    except Exception as e:
+        print(f"Exception: {e}")
+        return None
+
+if __name__ == '__main__':
+    while True:
+        # Refreshing page
+        time.sleep(12 + random.uniform(0, 5))
+
+        pag.click(95,105)
+
+        # Image Detection of Ticket Available or not
+        try:
+            pos = get_position("standard.png")
+            if pos is not None:
+                pag.click(pos[0],pos[1])
+                add_to_cart()
+                print("found")
+            else:
+                raise Exception("No position")
+
+        except Exception as e:
+            print(f"Exception: {e}")
